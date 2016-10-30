@@ -84,24 +84,4 @@ public class RegPage extends BasePage {
         return driver.findElement(dynamicError).getText();
     }
 
-//    public String getBackgroundColorOf(String field) {
-//        WebElement element;
-//        switch (field) {
-//            case "email":
-//                element = driver.findElement(email);
-//                break;
-//            case "password":
-//                element = driver.findElement(password);
-//                break;
-//            case "confirm":
-//                element = driver.findElement(confirm);
-//                break;
-//            default:
-//                System.out.println(" please choose  email | password | confirm ");
-//                return null;
-//        }
-//        return element.getCssValue("background-color");
-//    }
-
-
 }
