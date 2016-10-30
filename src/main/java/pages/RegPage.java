@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,8 +10,8 @@ public class RegPage extends BasePage {
     private final String PAGE_URL = "https://my.maxpay.com/#/signup";
 
     private final By logo = new By.ByClassName("header__site-logo");
-    private final By mail = new By.ById("inputEmail3");
-    private final By pass = new By.ByName("password");
+    private final By email = new By.ById("inputEmail3");
+    private final By password = new By.ByName("password");
     private final By confirm = new By.ByName("confirm");
     private final By regButton = new By.ByXPath(".//*[@type='submit']");
 
@@ -35,8 +34,8 @@ public class RegPage extends BasePage {
     }
 
     public RegPage enterRegData(String mail, String pass, String confirm) {
-        driver.findElement(this.mail).sendKeys(mail);
-        driver.findElement(this.pass).sendKeys(pass);
+        driver.findElement(this.email).sendKeys(mail);
+        driver.findElement(this.password).sendKeys(pass);
         driver.findElement(this.confirm).sendKeys(confirm);
         return this;
     }
@@ -54,7 +53,7 @@ public class RegPage extends BasePage {
 
     public boolean isSubmitActive() {
         String s = driver.findElement(regButton).getAttribute("disabled");
-        if (s == null ) {
+        if (s == null) {
             return true;
         } else return false;
     }
@@ -64,12 +63,12 @@ public class RegPage extends BasePage {
     }
 
     public RegPage moveCursor() {
-        driver.findElement(mail).click();
+        driver.findElement(email).click();
         return this;
     }
 
 
-    public String getErrorMailText() {
+    public String getErrorEMailText() {
         return driver.findElement(errorMail).getText();
     }
 
@@ -85,24 +84,24 @@ public class RegPage extends BasePage {
         return driver.findElement(dynamicError).getText();
     }
 
-    public String getBackgroundColorOf(String field) {
-        WebElement element;
-        switch (field) {
-            case "mail":
-                element = driver.findElement(mail);
-                break;
-            case "password":
-                element = driver.findElement(pass);
-                break;
-            case "confirm":
-                element = driver.findElement(confirm);
-                break;
-            default:
-                System.out.println(" please choose  mail | password | confirm ");
-                return null;
-        }
-        return element.getCssValue("background-color");
-    }
+//    public String getBackgroundColorOf(String field) {
+//        WebElement element;
+//        switch (field) {
+//            case "email":
+//                element = driver.findElement(email);
+//                break;
+//            case "password":
+//                element = driver.findElement(password);
+//                break;
+//            case "confirm":
+//                element = driver.findElement(confirm);
+//                break;
+//            default:
+//                System.out.println(" please choose  email | password | confirm ");
+//                return null;
+//        }
+//        return element.getCssValue("background-color");
+//    }
 
 
 }

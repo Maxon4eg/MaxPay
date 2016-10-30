@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
 
+    private final int DEFAULT_TIMEOUT = 15;
     protected WebDriver driver;
 
     public BasePage(WebDriver driver) {
@@ -16,29 +17,25 @@ public abstract class BasePage {
     }
 
     /**
-     * By default waiting  15 seconds
      * @param by of the  seeking element element
      * @return true if visible
      */
-
     protected boolean waitForVisibility(By by) {
-        return waitForVisibility(by, 15);
+        return waitForVisibility(by, DEFAULT_TIMEOUT);
     }
 
 
     /**
-     * By default waiting  15 seconds
      * @param by of the  seeking element element
      * @return true if visible
      */
-
     protected boolean waitForVisibility(By by, int seconds) {
         WebDriverWait wait = new WebDriverWait(driver, seconds);
         try {
             wait.until(ExpectedConditions.visibilityOf(driver.findElement(by)));
             return true;
-        }catch (ElementNotVisibleException | TimeoutException e ){
-            return false ;
+        } catch (ElementNotVisibleException | TimeoutException e) {
+            return false;
         }
     }
 

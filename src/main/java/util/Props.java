@@ -12,7 +12,7 @@ public class Props {
         return props;
     }
 
-    public static String getKey (String key){
+    public static String getKey(String key) {
         try {
             return loadProperty().getProperty(key);
         } catch (IOException e) {

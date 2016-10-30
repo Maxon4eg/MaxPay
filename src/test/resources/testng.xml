@@ -3,7 +3,7 @@
 <suite name="Tests" verbose="5">
     <test name="Cheap Domains Registration">
         <classes>
-            <class name="funcTest.RegTests"/>
+            <class name="funcTest.RegistrationTests"/>
         </classes>
     </test>
 </suite>

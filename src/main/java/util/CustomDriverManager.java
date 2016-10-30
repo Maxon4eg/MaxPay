@@ -26,7 +26,7 @@ public class CustomDriverManager {
             case "firefox":
                 MarionetteDriverManager.getInstance().setup(Architecture.x64);
                 DesiredCapabilities dc = new DesiredCapabilities();
-                dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR,UnexpectedAlertBehaviour.IGNORE);
+                dc.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
                 driver = new FirefoxDriver(dc);
                 break;
             case "ie":
@@ -34,8 +34,7 @@ public class CustomDriverManager {
                 driver = new InternetExplorerDriver();
                 break;
             default:
-                System.out.println("No such browser");
-                return null;
+                throw new RuntimeException("No such browser");
         }
         return driver;
     }
@@ -55,7 +54,6 @@ public class CustomDriverManager {
     /**
      * waiting for page to load
      */
-
     public static void setPageLoadWait(int seconds) {
         driver.manage().timeouts().pageLoadTimeout(seconds, TimeUnit.SECONDS);
     }

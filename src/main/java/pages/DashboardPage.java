@@ -13,8 +13,8 @@ public class DashboardPage extends BasePage {
     }
 
 
-    public boolean isPopUp (){
-        return waitForVisibility(popUP,15);
+    public boolean isPopUp() {
+        return waitForVisibility(popUP);
     }
 
 }
